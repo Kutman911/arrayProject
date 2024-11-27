@@ -15,13 +15,30 @@ public class Main {
 
         while(true)
         {
+            guesses.clear();
 
             takeGuesses(guesses);
 
             int correctGuesses = checkGuesses(boxesLocations, guesses);
-            System.out.println("You guessed" + correctGuesses + " locations of boxes correctly.");
+            System.out.println("You guessed " + correctGuesses + " locations of boxes correctly.");
 
-            
+            if(correctGuesses == 3)
+            {
+                System.out.println("Congratulations! You found the hidden cargo!");
+                break;
+            }
+
+            attempts++;
+
+            if(attempts == maxAttempts)
+            {
+                boxesLocations.clear();
+                generateNumbers(boxesLocations);
+                System.out.println("The boxes have to new locations.");
+                attempts = 0;
+            }
+
+
         }
 
 
@@ -45,7 +62,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         for(int i = 1; i < 4; i++)
         {
-            System.out.print("Enter your" + i + "guess: ");
+            System.out.print("Enter your " + i + " guess: ");
             int guess = sc.nextInt();
             while(guess < 0 || guess > 7)
             {
