@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 import java.util.Random;
 import java.util.ArrayList;
@@ -34,7 +35,7 @@ public class Main {
             {
                 boxesLocations.clear();
                 generateNumbers(boxesLocations);
-                System.out.println("The boxes have to new locations.");
+                System.out.println("The boxes have moved  to new locations.");
                 attempts = 0;
             }
 
@@ -49,7 +50,7 @@ public class Main {
         int correct = 0;
         for(int i = 0; i < 3; i++)
         {
-            if(boxesLocations.get(i) == guesses.get(i))
+            if(boxesLocations.contains(guesses.get(i)))
             {
                 correct++;
             }
@@ -64,9 +65,17 @@ public class Main {
         {
             System.out.print("Enter your " + i + " guess: ");
             int guess = sc.nextInt();
+
             while(guess < 0 || guess > 7)
             {
-                System.out.println("Incorrect input. choose an integer between 0 and 7");
+                System.out.println("Incorrect input. Choose an integer between 0 and 7. Enter a new guess: ");
+                guess = sc.nextInt();
+            }
+
+            while(guesses.contains(guess))
+            {
+                System.out.println("Incorrect input. The locations are not repeated. Enter a new guess: ");
+                guess = sc.nextInt();
             }
             guesses.add(guess);
         }
