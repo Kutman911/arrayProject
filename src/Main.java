@@ -1,4 +1,3 @@
-
 import java.util.Scanner;
 import java.util.Random;
 import java.util.ArrayList;
@@ -38,10 +37,7 @@ public class Main {
                 System.out.println("The boxes have moved  to new locations.");
                 attempts = 0;
             }
-
-
         }
-
 
     }
 
@@ -80,7 +76,6 @@ public class Main {
             guesses.add(guess);
         }
     }
-
 
     static void generateNumbers(ArrayList<Integer> boxesLocations)
     {
