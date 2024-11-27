@@ -11,6 +11,19 @@ public class Main {
         int attempts = 0;
         int maxAttempts = 5;
 
+        generateNumbers(boxesLocations);
+
+        while(true)
+        {
+
+            takeGuesses(guesses);
+
+            int correctGuesses = checkGuesses(boxesLocations, guesses);
+            System.out.println("You guessed" + correctGuesses + " locations of boxes correctly.");
+
+            
+        }
+
 
     }
 
@@ -42,7 +55,7 @@ public class Main {
         }
     }
 
-    
+
     static void generateNumbers(ArrayList<Integer> boxesLocations)
     {
         Random rand = new Random();
